@@ -2,13 +2,15 @@ import random
 from PIL import Image
 
 def crop_random_portion(infile, outfile):
+    print("--- <START> crop_random_portion ---")
+
     # Open an image in RGB mode
-    print("...Opening image")
+    print("    ...Opening image")
 
     im = Image.open(infile)
 
     # Determine edges of random image portion:
-    print("...Calculating random edges")
+    print("    ...Calculating random edges")
 
     image_size = im.size
     portion_size = (480, 320)
@@ -20,13 +22,15 @@ def crop_random_portion(infile, outfile):
     bottom = top+portion_size[1]
 
     # Cropped image with above edges
-    print("...Cropping image")
+    print("    ...Cropping image")
 
     portion = im.crop((left, top, right, bottom))
 
     # Save the portion
-    print("...Saving image")
+    print("    ...Saving image")
 
     portion.save(outfile, "JPEG")
+
+    print("--- <END> crop_random_portion ---")
 
     return True
