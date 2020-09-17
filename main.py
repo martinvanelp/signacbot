@@ -2,6 +2,9 @@ import os
 import random
 import xml.etree.ElementTree as ET
 import crop_random_portion as CRP
+import tweet_image as TI
+
+print("=== <START> signacbot ===")
 
 # Get paintings library entries
 tree = ET.parse("./pictures/pictures.xml")
@@ -11,16 +14,28 @@ root = tree.getroot()
 number_of_paintings = len(list(root))
 chosen_painting = random.randint(0, number_of_paintings-1)
 
-# print(root[chosen_painting].get('name'),
-#       root[chosen_painting].find('file').text,
-#       root[chosen_painting].find('link').text)
+painting_file    = root[chosen_painting].find('file').text
+painting_name    = root[chosen_painting].get('name')
+painting_painter = root[chosen_painting].find('painter').text
+painting_year    = root[chosen_painting].find('year').text
+painting_link    = root[chosen_painting].find('link').text
 
 # Create temporary image of random portion
-file = root[chosen_painting].find('file').text
+temp_file = "./tmp/temp.jpg"
 
-tempfile = "./tmp/temp.jpg"
+if os.path.exists(temp_file):
+    os.remove(temp_file)
 
-if os.path.exists(tempfile):
-    os.remove(tempfile)
+CRP.crop_random_portion(infile  = "./pictures/" + painting_file,
+                        outfile = temp_file)
 
-CRP.crop_random_portion("./pictures/" + file, tempfile)
+# Tweet out the temporary image with text
+tweet_text = "'" + painting_name + "'" + \
+             " by " + painting_painter + \
+             " (" + painting_year + ") " + \
+             painting_link + " #signac"
+
+TI.tweet_image(text  = tweet_text,
+               image = temp_file)
+
+print("=== <END> signacbot ===")
