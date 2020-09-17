@@ -7,7 +7,7 @@ import tweet_image as TI
 print("=== <START> signacbot ===")
 
 # Get paintings library entries
-tree = ET.parse("./pictures/pictures.xml")
+tree = ET.parse("./pictures.xml")
 root = tree.getroot()
 
 # Choose random painting
