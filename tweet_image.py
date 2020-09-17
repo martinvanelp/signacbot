@@ -1,8 +1,8 @@
 import tweepy
 import twitter_config as CFG
 
-def tweet():
-    print("--- <START> tweepy ---")
+def tweet_image(text, image):
+    print("--- <START> tweet ---")
 
     # Authenticate to Twitter
     print("    ...Authenticating")
@@ -25,10 +25,11 @@ def tweet():
     # Create a tweet
     print("    ...Tweeting")
 
-    #api.update_status("Hello Tweepy")
+    upload = api.media_upload(image)
 
-    print("--- <END> tweepy ---")
+    status = api.update_status(text,
+                               media_ids=[upload.media_id])
 
-    return True
+    print("--- <END> tweet ---")
 
-tweet()
+    return status
