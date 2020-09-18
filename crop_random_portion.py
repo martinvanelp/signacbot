@@ -13,7 +13,9 @@ def crop_random_portion(infile, outfile):
     print("    ...Calculating random edges")
 
     image_size = im.size
-    portion_size = (480, 320)
+    width  = 320 + random.randint(0, 1) * 160
+    height = 320 + random.randint(0, 1) * 160
+    portion_size = (width, height)
 
     left = random.randint(0, image_size[0]-portion_size[0]-1)
     top  = random.randint(0, image_size[1]-portion_size[1]-1)

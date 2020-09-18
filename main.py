@@ -14,8 +14,8 @@ root = tree.getroot()
 number_of_paintings = len(list(root))
 chosen_painting = random.randint(0, number_of_paintings-1)
 
-painting_file    = root[chosen_painting].find('file').text
 painting_name    = root[chosen_painting].get('name')
+painting_file    = root[chosen_painting].find('file').text
 painting_painter = root[chosen_painting].find('painter').text
 painting_year    = root[chosen_painting].find('year').text
 painting_link    = root[chosen_painting].find('link').text
