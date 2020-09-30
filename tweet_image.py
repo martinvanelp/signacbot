@@ -1,5 +1,5 @@
+import os
 import tweepy
-import twitter_config as CFG
 
 def tweet_image(text, image):
     print("--- <START> tweet ---")
@@ -7,8 +7,10 @@ def tweet_image(text, image):
     # Authenticate to Twitter
     print("    ...Authenticating")
 
-    auth = tweepy.OAuthHandler(CFG.CONSUMER_KEY, CFG.CONSUMER_SECRET)
-    auth.set_access_token(CFG.ACCESS_TOKEN, CFG.ACCESS_TOKEN_SECRET)
+    auth = tweepy.OAuthHandler(os.environ.get('CONSUMER_KEY'),
+                               os.environ.get('CONSUMER_SECRET'))
+    auth.set_access_token(os.environ.get('ACCESS_TOKEN'),
+                          os.environ.get('ACCESS_TOKEN_SECRET'))
 
     # Create API object and verify authentication
     print("    ...Create API object")

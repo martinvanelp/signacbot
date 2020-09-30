@@ -12,3 +12,6 @@ Signac. Along the way I learn to use Python. Work in progress.
 - Functional Programming in Python: https://www.geeksforgeeks.org/functional-programming-in-python/
 - How to Make a Twitter Bot in Python With Tweepy: https://realpython.com/twitter-bot-python-tweepy/
 - Tweepy documentation: http://docs.tweepy.org/en/latest/
+- Introduction to GitHub Actions: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions
+- How to setup github actions to run my python script on schedule: https://github.community/t/how-to-setup-github-actions-to-run-my-python-script-on-schedule/18335/2
+- Making Use of Environment Variables in Python: https://www.nylas.com/blog/making-use-of-environment-variables-in-python/
