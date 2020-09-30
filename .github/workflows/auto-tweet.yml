@@ -4,8 +4,8 @@ name: auto-tweet
 
 on:
   schedule:
-  - cron: “0  5 * * *” # runs at 05:00 UTC everyday
-  - cron: “0 17 * * *” # runs at 17:00 UTC everyday
+  - cron: "0  5 * * *" # runs at 05:00 UTC everyday
+  - cron: "0 17 * * *" # runs at 17:00 UTC everyday
 
 jobs:
   auto-tweet:
