@@ -15,3 +15,4 @@ Signac. Along the way I learn to use Python. Work in progress.
 - Introduction to GitHub Actions: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions
 - How to setup github actions to run my python script on schedule: https://github.community/t/how-to-setup-github-actions-to-run-my-python-script-on-schedule/18335/2
 - Making Use of Environment Variables in Python: https://www.nylas.com/blog/making-use-of-environment-variables-in-python/
+- tempfile — Generate temporary files and directories: https://docs.python.org/3/library/tempfile.html

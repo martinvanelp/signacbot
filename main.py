@@ -1,4 +1,4 @@
-import os
+import tempfile
 import random
 import xml.etree.ElementTree as ET
 import crop_random_portion as CRP
@@ -21,13 +21,10 @@ painting_year    = root[chosen_painting].find('year').text
 painting_link    = root[chosen_painting].find('link').text
 
 # Create temporary image of random portion
-temp_file = "./tmp/temp.jpg"
-
-if os.path.exists(temp_file):
-    os.remove(temp_file)
+temp_file = tempfile.NamedTemporaryFile()
 
 CRP.crop_random_portion(infile  = "./pictures/" + painting_file,
-                        outfile = temp_file)
+                        outfile = temp_file.name)
 
 # Tweet out the temporary image with text
 tweet_text = "'" + painting_name + "'" + \
@@ -36,6 +33,9 @@ tweet_text = "'" + painting_name + "'" + \
              painting_link + " #signac"
 
 TI.tweet_image(text  = tweet_text,
-               image = temp_file)
+               image = temp_file.name)
+
+# Cleanup
+temp_file.close()
 
 print("=== <END> signacbot ===")
