@@ -5,4 +5,6 @@ os.environ['CONSUMER_SECRET']     = ""
 os.environ['ACCESS_TOKEN']        = ""
 os.environ['ACCESS_TOKEN_SECRET'] = ""
 
+os.environ['PICTURES'] = ""
+
 import main

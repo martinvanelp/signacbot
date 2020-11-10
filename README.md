@@ -16,3 +16,4 @@ Signac. Along the way I learn to use Python. Work in progress.
 - How to setup github actions to run my python script on schedule: https://github.community/t/how-to-setup-github-actions-to-run-my-python-script-on-schedule/18335/2
 - Making Use of Environment Variables in Python: https://www.nylas.com/blog/making-use-of-environment-variables-in-python/
 - tempfile — Generate temporary files and directories: https://docs.python.org/3/library/tempfile.html
+- Download Files with Python: https://stackabuse.com/download-files-with-python/

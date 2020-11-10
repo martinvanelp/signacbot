@@ -1,4 +1,6 @@
+import os
 import tempfile
+import wget
 import random
 import xml.etree.ElementTree as ET
 import crop_random_portion as CRP
@@ -20,10 +22,16 @@ painting_painter = root[chosen_painting].find('painter').text
 painting_year    = root[chosen_painting].find('year').text
 painting_link    = root[chosen_painting].find('link').text
 
+# Download painting
+painting_download = "./downloaded_painting.jpg"
+
+url = os.environ.get('PICTURES') + painting_file
+wget.download(url, painting_download)
+
 # Create temporary image of random portion
 temp_file = tempfile.NamedTemporaryFile()
 
-CRP.crop_random_portion(infile  = "./pictures/" + painting_file,
+CRP.crop_random_portion(infile  = painting_download,
                         outfile = temp_file.name)
 
 # Tweet out the temporary image with text
@@ -36,6 +44,7 @@ TI.tweet_image(text  = tweet_text,
                image = temp_file.name)
 
 # Cleanup
+os.remove(painting_download)
 temp_file.close()
 
 print("=== <END> signacbot ===")
