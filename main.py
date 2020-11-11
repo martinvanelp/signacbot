@@ -25,6 +25,7 @@ painting_link    = root[chosen_painting].find('link').text
 # Download painting
 painting_download = "./downloaded_painting.jpg"
 
+print(os.environ.get('PICTURES')) 
 url = os.environ.get('PICTURES') + painting_file
 wget.download(url, painting_download)
 
