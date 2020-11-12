@@ -1,7 +1,9 @@
 # signacbot
 
 The idea is to make a Twitter bot that tweets random portions of paintings by
-Signac. Along the way I learn to use Python. Work in progress.
+Signac. Along the way I learn to use Python.
+
+![Screenshot](./screenshot.jpg)
 
 ## References
 
